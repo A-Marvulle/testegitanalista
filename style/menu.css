@@ -1,0 +1,168 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--branco-1);
+    padding: 2rem 0;
+}
+
+.logo {
+    margin: 1rem 0rem 0rem 1rem;
+}
+
+nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    position: relative;
+    font-size: 25px;
+}
+
+.menu > li, .menu > a {
+    display: inline-block;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    text-decoration: none;
+    display: block;
+    padding: 10px 1.5rem;
+    transition: background-color .22s ease, color .22s ease;
+    color: var(--preto);
+}
+
+.menu a:hover {
+    background-color: var(--vermelho);
+    color: var(--branco-1);
+}
+
+.submenu, .submenu2 {
+    position: absolute;
+    background-color: var(--branco);
+    display: none;
+    width: 10rem;
+}
+
+.submenu {
+    left: 0;
+    top: 100%;
+}
+
+.submenu2{
+    left: 100%; 
+    top: 0;
+}
+
+.menu li:hover > .submenu {
+    display: block;
+}
+
+.submenu li:hover > .submenu2 {
+    display: block;
+}
+
+#menu-bar {
+    display: none;
+}
+
+.icon {
+    color: var(--vermelho);
+    display: none;
+}
+
+.close-icon {
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
+    font-size: 24px;
+    cursor: pointer;
+    display: none; 
+    z-index: 1001; 
+}
+
+#menu-bar:checked ~ nav .close-icon {
+    display: block;
+}
+
+@media screen and (max-width: 800px) {
+    header {
+        padding: 0;
+    }
+    .logo img{
+        width: 70%;
+    }
+    .icon {
+        display: initial;
+        margin: 1rem;
+        font-size: 25px;
+    }
+
+    .submenu2{
+        left: 0;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--branco-1);
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        display: none;
+        z-index: 1000;
+    }
+
+    nav.visible {
+        display: block;
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-align: center;
+    }
+
+    nav ul li {
+        width: 100%;
+        position: relative;
+        text-align: center;
+    }
+
+    nav ul li ul {
+        position: absolute;
+        display: none;
+        width: auto;
+        min-width: 100%;
+        top: 100%; 
+        left: 0;
+        right: 0; 
+        margin: auto;
+        z-index: 1000; 
+    }
+    
+    .submenu2 li{
+        background-color: var(--cinza-1);
+    }
+
+    
+    nav ul ul ul {
+        top: 0;
+        left: 100%;
+    }
+
+    nav ul li:hover > ul {
+        display: block;
+        position: relative;
+    }
+
+    #menu-bar:checked ~ nav {
+        display: block;
+    }
+}
